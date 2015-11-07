@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BeerShop.Models.Beer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="clearfix"></div>
+@foreach (var item in Model) {
+    <div class="grid3column-progression">
+        <article>
+            <div class="menu-index-pro">
+                <div class="menu-image-pro">
+                    <a href="images/demo/gold-ale.jpg" data-rel="prettyPhoto[gallery]">
+                        <img alt="gold-ale" class="attachment-progression-beers wp-post-image" height="550" src="~/Content/images/demo/gold-ale.jpg" width="370">
+                    </a>
+                </div>
+                <div class="menu-content-pro">
+                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                    <div class="pro_sub_header">
+                        @Html.DisplayFor(modelItem => item.Country)
+                    </div>
+                    <div class="menu_content_pro">
+                        <p>@Html.DisplayFor(modelItem => item.Type)</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </article>
+        </div>
+        }
