@@ -1,10 +1,5 @@
-﻿<!doctype html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>  <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
- <!--<![endif]-->
+﻿<html class="no-js" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Growler Template</title>
@@ -18,8 +13,9 @@
     @Scripts.Render("~/bundles/modernizr")
 
     <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700%7CBenchNine:300,400,700' rel='stylesheet' type='text/css'>
-    @Scripts.Render("~/Content/js/libs/jquery-1.11.2.js")
-    @Scripts.Render("~/Content/js/libs/jquery-migrate.min.j")
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    @*@Scripts.Render("~/Content/js/libs/jquery-1.11.2.js")*@
+    @*@Scripts.Render("~/Content/js/libs/jquery-migrate.min.js")*@
     @Scripts.Render("~/Content/js/libs/modernizr-2.6.2.min.js")
 </head>
 <body class="home">
@@ -71,10 +67,42 @@
                             <a href="blog.html">News</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="#" class="btn-cart"><i class="fa fa-shopping-cart"></i></a>
                         </li>
                     </ul>
-                </div>
+                    <div class="cart-items-wrapper visible">
+                        <div class="cart-items">
+                            <h4>Shopping Bag</h4>
+                            <ul>
+                                <li>
+                                    <div class="image">
+                                        <img src="~/Content/images/demo/berry-lager.jpg" alt="shopping cart image" />
+                                    </div>
+                                    <p><a href="single-product.html">heiniken</a></p>
+                                    <p class="color">White</p>
+                                    <p>Q-ty: 1</p>
+                                    <div class="remove">
+                                        <a href="#" class="remove-item"><i class="fa fa-times"></i></a>
+                                        <p class="price">24</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <img src="~/Content/images/demo/apple-ale.jpg" alt="shopping cart image" />
+                                    </div>
+                                    <p><a href="single-product.html">Hertog Jan</a></p>
+                                    <p class="color">Pink</p>
+                                    <p>Q-ty: 1</p>
+                                    <div class="remove">
+                                        <a href="#" class="remove-item"><i class="fa fa-times"></i></a>
+                                        <p class="price">24</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="sub-total">Subtotal: $48</p>
+                            <a href="cart.html" class="view-bag">View My Cart</a>
+                        </div>
+                    </div>
             </nav>
             <div class="clearfix"></div>
         </div>
@@ -144,17 +172,18 @@
         </div><!-- close #copyright -->
     </footer>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <script src="~/Content/js/script.js"></script>
+    @*@RenderSection("scripts", required: false)*@
 
-    <script src="js/plugins.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/libs/jquery-ui.min.js"></script>
+    @*<script src="~/Content/js/plugins.js"></script>*@
+    <script src="~/Content/js/script.js"></script>
+    <script src="~/Content/js/libs/jquery-ui.min.js"></script>
     <!-- RevSlider -->
-    <script src="js/revolution-slider.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    @*<script src="~/Content/js/revolution-slider.js"></script>*@
+    @*<script type="text/javascript" src="~/Content/rs-plugin/js/jquery.themepunch.tools.min.js"></script>*@
+    @*<script type="text/javascript" src="~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>*@
     <!-- End RevSlider -->
 </body>
 </html>
