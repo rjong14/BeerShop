@@ -4,11 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<h1>Our Beers</h1>
 
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <div class="clearfix"></div>
 @foreach (var item in Model) {
     <div class="grid3column-progression">
@@ -20,7 +21,9 @@
                     </a>
                 </div>
                 <div class="menu-content-pro">
-                    <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                    <h3>
+                        @Html.ActionLink(item.Name, "Details", new { id = item.ID })
+                    </h3>
                     <div class="pro_sub_header">
                         @Html.DisplayFor(modelItem => item.Country)
                     </div>

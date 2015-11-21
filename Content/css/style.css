@@ -45,6 +45,17 @@ Text Domain: progression
 /*
 =============================================== 00. HTML5 ✰ Rick Custom √ √ √ √ √ ===============================================
 */
+.attachment-progression-events{
+    height: 500px;
+    width: 300px;
+    margin-left: 100px;
+}
+
+.grid2column-progression{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
 #main{
     min-height: 500px;
 }
@@ -1516,7 +1527,7 @@ body #main .gallery img {
 /*
 =============================================== 09. DEFAULT GRID ===============================================
 */
-.grid2column-progression, .grid3column-progression, .grid3columnbig-progression, .grid4column-progression, .grid4columnbig-progression {float:left; margin-right:3%; min-height:2px; }
+.grid2column-progression, .grid3column-progression, .grid3columnbig-progression, .grid4column-progression, .grid4columnbig-progression {float:left; margin-right:2%; min-height:2px; }
 .grid2column-progression { width: 48.5%;}
 .grid3column-progression {width: 31.3%;  }
 .lt-ie8 .grid3column-progression {width: 31%;  }
@@ -1531,7 +1542,7 @@ body .lastcolumn-progression {margin-right:0% !important;}
 .rotate_cols_pro .grid2column-progression {
 	float:right;
 	 margin-right:0%;
-	  margin-left:3%;
+	  margin-left:2%;
 }
 .rotate_cols_pro .grid2column-progression.lastcolumn-progression {
 	float:left;

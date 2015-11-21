@@ -4,7 +4,7 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+@*<h2>Details</h2>
 
 <div>
     <h4>Beer</h4>
@@ -39,4 +39,30 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>
+</p>*@
+
+
+    <article class="single-event">
+        <div class="grid2column-progression">
+            <img alt="shutterstock_72726022" class="attachment-progression-events wp-post-image" src="~/Content/images/demo/gold-ale.jpg">
+        </div>
+        <div class="grid2column-progression lastcolumn-progression">
+            <div class="events-container-single">
+                <h2>@Html.DisplayFor(model => model.Name)</h2>
+                <div class="entry-meta">
+                    <span class="entry-date date">
+                        @Html.DisplayFor(model => model.Type)
+                    </span>
+                </div>
+                <div class="entry-meta entry-tickets">
+                    <div class="event-tickets tickets">
+                        @Html.DisplayFor(model => model.Country)
+                    </div>
+                </div>
+                <div class="entry-content description">
+                    <p>here comes the LOREM</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="clearfix"></div>
