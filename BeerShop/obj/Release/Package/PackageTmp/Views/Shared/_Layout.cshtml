@@ -1,0 +1,189 @@
+﻿<html class="no-js" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Growler Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!--<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />-->
+    @Styles.Render("~/Content/css/style.css")
+    @Styles.Render("~/Content/css/responsive.css")
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700%7CBenchNine:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    @*@Scripts.Render("~/Content/js/libs/jquery-1.11.2.js")*@
+    @*@Scripts.Render("~/Content/js/libs/jquery-migrate.min.js")*@
+    @Scripts.Render("~/Content/js/libs/modernizr-2.6.2.min.js")
+</head>
+<body class="home">
+    <header>
+        <div class="width-container">
+            <h1 id="logo">
+                <a href="index.html" title="Growler Theme" rel="home">
+                    <img src="~/Content/images/logo.png" alt="Growler Theme" width="220">
+                </a>
+            </h1>
+            <div class="social-ico">
+                <a href="contact.html"><i class="fa fa-map-marker"></i></a>
+                <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+            <nav>
+                <div class="menu-main-navigation-container">
+                    <ul id="menu-main-navigation" class="sf-menu">
+                        <li class="current-menu-item">
+                            @Html.ActionLink("Home", "Index", "Home")
+                        </li>
+                        <li>
+                            @Html.ActionLink("Beers", "Index", "Beers")
+                        </li>
+                        <li class="menu-item ">
+                            <a href="taproom.html" class="sf-with-ul">Taproom</a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="page-columns.html">Columns</a>
+                                </li>
+                                <li>
+                                    <a href="page-faq.html">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="page-maps-videos.html">Maps and Videos</a>
+                                </li>
+                                <li>
+                                    <a href="page-shortcodes.html">Shortcodes Examples</a>
+                                </li>
+                                <li>
+                                    <a href="homepage-fixed-header.html">Fixed Header</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="events.html">Events</a>
+                        </li>
+                        <li>
+                            <a href="blog.html">News</a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn-cart"><i class="fa fa-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+                    <div class="cart-items-wrapper">
+                        <div class="cart-items">
+                            <h4>Shopping Bag</h4>
+                            <ul>
+                                <li>
+                                    <div class="image">
+                                        <img src="~/Content/images/demo/berry-lager.jpg" alt="shopping cart image" />
+                                    </div>
+                                    <p><a href="single-product.html">heiniken</a></p>
+                                    <p class="color">White</p>
+                                    <p>Q-ty: 1</p>
+                                    <div class="remove">
+                                        <a href="#" class="remove-item"><i class="fa fa-times"></i></a>
+                                        <p class="price">24</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="image">
+                                        <img src="~/Content/images/demo/apple-ale.jpg" alt="shopping cart image" />
+                                    </div>
+                                    <p><a href="single-product.html">Hertog Jan</a></p>
+                                    <p class="color">Pink</p>
+                                    <p>Q-ty: 1</p>
+                                    <div class="remove">
+                                        <a href="#" class="remove-item"><i class="fa fa-times"></i></a>
+                                        <p class="price">24</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="sub-total">Subtotal: $48</p>
+                            <a href="cart.html" class="view-bag">View My Cart</a>
+                        </div>
+                    </div>
+            </nav>
+            <div class="clearfix"></div>
+        </div>
+    </header>
+
+    <div id="main">
+        <div class="width-container">
+            @RenderBody()
+        </div>
+        <div class="clearfix"></div>
+    </div><!-- close #main -->
+
+    <div id="widget-area">
+        <div class="width-container footer-3-column">
+            <div id="pyre_social_media-widget-feat-2" class="widget pyre_social_media-feat">
+                <h2 class="widget-title">Our Location</h2>
+                <div class="social-icons-widget-pro">
+                    <div>
+                        <strong>Growler Brewery</strong><br />
+                        1422 1st St. Santa Rosa, CA 94559<br /><br />
+                        <strong>
+                            Call for
+                            Reservations
+                        </strong>: (707) 255-0211<br />
+                        <strong>E-mail</strong>: admin@e-mail.com
+                    </div>
+                    <div class="social-ico">
+                        <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="http://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a href="http://linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="http://instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </div><!-- close .social-ico -->
+                </div><!-- close .social-icons-widget-pro -->
+            </div>
+
+            <div id="flickr-widget-2" class="widget flickr">
+                <h2 class="widget-title">Photos from Flickr</h2>
+                <!-- Important: In Order to change your Flickr ID number, edit the script.js file, and replace this number: 52617155@N08 -->
+                <div class="flickr-widget flickr-widget-2"></div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <footer>
+        <div id="copyright">
+            <div class="width-container">
+                <div id="copyrigh-text">© 2015 All Rights Reserved. Developed by ProgressionStudios</div>
+                <div class="menu-footer-navigation-container">
+                    <ul id="menu-footer-navigation" class="pro-footer-menu">
+                        <li class="menu-item current-menu-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="beers.html">Beers</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="blog.html">News</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div><!-- close .width-container -->
+            <div class="clearfix"></div>
+        </div><!-- close #copyright -->
+    </footer>
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    <script src="~/Content/js/script.js"></script>
+    @*@RenderSection("scripts", required: false)*@
+
+    @*<script src="~/Content/js/plugins.js"></script>*@
+    <script src="~/Content/js/script.js"></script>
+    <script src="~/Content/js/libs/jquery-ui.min.js"></script>
+    <!-- RevSlider -->
+    @*<script src="~/Content/js/revolution-slider.js"></script>*@
+    @*<script type="text/javascript" src="~/Content/rs-plugin/js/jquery.themepunch.tools.min.js"></script>*@
+    @*<script type="text/javascript" src="~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>*@
+    <!-- End RevSlider -->
+</body>
+</html>

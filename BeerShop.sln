@@ -5,6 +5,19 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerShop", "BeerShop\BeerShop.csproj", "{F76B1D6A-FD0A-4B03-BF9B-11339EF114A9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{EFBBE749-4377-4F8B-A1E1-77BF760842A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{67739FF7-503A-4EA0-B03E-5509D506A308}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{75D4DC94-E07A-4C16-B4C7-B720D66FB4EC}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\BeerShop.json = PublishScripts\Templates\BeerShop.json
+		PublishScripts\Templates\BeerShop.param.dev.json = PublishScripts\Templates\BeerShop.param.dev.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +31,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{67739FF7-503A-4EA0-B03E-5509D506A308} = {EFBBE749-4377-4F8B-A1E1-77BF760842A3}
+		{75D4DC94-E07A-4C16-B4C7-B720D66FB4EC} = {EFBBE749-4377-4F8B-A1E1-77BF760842A3}
 	EndGlobalSection
 EndGlobal
