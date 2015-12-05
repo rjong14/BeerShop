@@ -43,3 +43,6 @@ Temporary Items
 .apdisk
 BeerShop/App_Data/BeerShop.Models.BeerDBContext.mdf
 BeerShop/App_Data/BeerShop.Models.BeerDBContext_log.ldf
+
+*.mdf
+*.ldf
