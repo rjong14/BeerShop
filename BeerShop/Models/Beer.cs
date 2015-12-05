@@ -10,6 +10,7 @@ namespace BeerShop.Models {
         public String Name { get; set; }
         public String Country { get; set; }
         public string Type { get; set; }
+        public double Price { get; set; }
 
     }
     public class BeerDBContext : DbContext {

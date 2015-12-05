@@ -66,3 +66,4 @@ C:\Users\Rick de Jong\Documents\GitHub\BeerShop\BeerShop\bin\Microsoft.Owin.Secu
 C:\Users\Rick de Jong\Documents\GitHub\BeerShop\BeerShop\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Rick de Jong\Documents\GitHub\BeerShop\BeerShop\obj\Release\BeerShop.dll
 C:\Users\Rick de Jong\Documents\GitHub\BeerShop\BeerShop\obj\Release\BeerShop.pdb
+C:\Users\Rick de Jong\Documents\GitHub\BeerShop\BeerShop\obj\Release\BeerShop.csprojResolveAssemblyReference.cache

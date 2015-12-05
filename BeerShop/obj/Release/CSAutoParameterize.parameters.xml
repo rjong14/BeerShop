@@ -6,4 +6,7 @@
   <parameter name="BeerShop.Models.BeerDBContext-Web.config Connection String" description="BeerShop.Models.BeerDBContext Connection String used in web.config by the application to access the database." defaultValue="BeerShop.Models.BeerDBContext_ConnectionString" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\Rick\ de\ Jong\\Documents\\GitHub\\BeerShop\\BeerShop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BeerShop.Models.BeerDBContext']/@connectionString" />
   </parameter>
+  <parameter name="BeerShop.Models.BeerDBContext_DatabasePublish-Web.config Connection String" description="BeerShop.Models.BeerDBContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="BeerShop.Models.BeerDBContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rick\ de\ Jong\\Documents\\GitHub\\BeerShop\\BeerShop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BeerShop.Models.BeerDBContext_DatabasePublish']/@connectionString" />
+  </parameter>
 </parameters>
