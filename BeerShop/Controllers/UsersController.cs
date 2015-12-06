@@ -123,5 +123,12 @@ namespace BeerShop.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [AllowAnonymous]
+        public ActionResult Login(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
     }
 }
