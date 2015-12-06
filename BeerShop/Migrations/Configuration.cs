@@ -5,7 +5,7 @@ namespace BeerShop.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<BeerShop.Models.BeerDBContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<BeerShop.Models.Beercontext>
     {
         public Configuration()
         {
@@ -13,16 +13,17 @@ namespace BeerShop.Migrations
             ContextKey = "BeerShop.Models.BeerDBContext";
         }
 
-        protected override void Seed(BeerShop.Models.BeerDBContext context)
+        protected override void Seed(BeerShop.Models.Beercontext context)
         {
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
+
             context.Beers.AddOrUpdate(b => b.Name,
-              new Models.Beer() { Name = "Heineken", Country = "Netherlands", Type = "Pils", Price = 2.20 },
-              new Models.Beer() { Name = "Hertog Jan", Country = "Netherlands", Type = "Pils", Price = 3.20 }
+              new Models.Beer() { Name = "Heineken", Price = 2.20 },
+              new Models.Beer() { Name = "Hertog Jan", Price = 3.20 }
 
 
             );

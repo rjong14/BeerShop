@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Growler Template</title>
+    <title>The Beer House</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -22,8 +22,8 @@
     <header>
         <div class="width-container">
             <h1 id="logo">
-                <a href="index.html" title="Growler Theme" rel="home">
-                    <img src="~/Content/images/logo.png" alt="Growler Theme" width="220">
+                <a href="index.html" title="Beer" rel="home">
+                    <img src="~/Content/images/logo1.png" alt="Beer House" width="220">
                 </a>
             </h1>
             <div class="social-ico">
@@ -40,31 +40,11 @@
                         <li>
                             @Html.ActionLink("Beers", "Index", "Beers")
                         </li>
-                        <li class="menu-item ">
-                            <a href="taproom.html" class="sf-with-ul">Taproom</a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="page-columns.html">Columns</a>
-                                </li>
-                                <li>
-                                    <a href="page-faq.html">FAQ</a>
-                                </li>
-                                <li>
-                                    <a href="page-maps-videos.html">Maps and Videos</a>
-                                </li>
-                                <li>
-                                    <a href="page-shortcodes.html">Shortcodes Examples</a>
-                                </li>
-                                <li>
-                                    <a href="homepage-fixed-header.html">Fixed Header</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="#">Something</a>
                         </li>
                         <li>
-                            <a href="events.html">Events</a>
-                        </li>
-                        <li>
-                            <a href="blog.html">News</a>
+                            <a href="#">Something</a>
                         </li>
                         <li>
                             <a href="#" class="btn-cart"><i class="fa fa-shopping-cart"></i></a>
@@ -102,6 +82,7 @@
                             <p class="sub-total">Subtotal: $48</p>
                             <a href="cart.html" class="view-bag">View My Cart</a>
                         </div>
+                    </div>
                     </div>
             </nav>
             <div class="clearfix"></div>
@@ -175,7 +156,7 @@
     @*@Scripts.Render("~/bundles/jquery")*@
     @*@Scripts.Render("~/bundles/bootstrap")*@
     <script src="~/Content/js/script.js"></script>
-    @*@RenderSection("scripts", required: false)*@
+    @RenderSection("scripts", required: false)
 
     @*<script src="~/Content/js/plugins.js"></script>*@
     <script src="~/Content/js/script.js"></script>

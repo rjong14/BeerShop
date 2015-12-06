@@ -12,12 +12,13 @@ namespace BeerShop.Controllers
 {
     public class BeersController : Controller
     {
-        private BeerDBContext db = new BeerDBContext();
+        private Beercontext db = new Beercontext();
 
         // GET: Beers
         public ActionResult Index()
         {
-            return View(db.Beers.ToList());
+            var beers = db.Beers.Include(b => b.Country);
+            return View(beers.ToList());
         }
 
         // GET: Beers/Details/5
@@ -38,6 +39,7 @@ namespace BeerShop.Controllers
         // GET: Beers/Create
         public ActionResult Create()
         {
+            ViewBag.Country_ID = new SelectList(db.Countries, "ID", "Name");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace BeerShop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Country,Type")] Beer beer)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,Country_ID,Price")] Beer beer)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace BeerShop.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Country_ID = new SelectList(db.Countries, "ID", "Name", beer.Country_ID);
             return View(beer);
         }
 
@@ -70,6 +73,7 @@ namespace BeerShop.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Country_ID = new SelectList(db.Countries, "ID", "Name", beer.Country_ID);
             return View(beer);
         }
 
@@ -78,7 +82,7 @@ namespace BeerShop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Country,Type")] Beer beer)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Country_ID,Price")] Beer beer)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace BeerShop.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Country_ID = new SelectList(db.Countries, "ID", "Name", beer.Country_ID);
             return View(beer);
         }
 
