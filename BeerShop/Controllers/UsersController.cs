@@ -123,7 +123,7 @@ namespace BeerShop.Controllers
             }
             base.Dispose(disposing);
         }
-
+        // get 
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -131,10 +131,32 @@ namespace BeerShop.Controllers
             return View();
         }
 
+        // get
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
+
+        // post
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Register(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                User check = db.Users.Where<User>(u => u.Email == model.Email).SingleOrDefault();
+                if (check == null)
+                {
+                    db.Users.Add(model);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("Email", "E-mail address already in use");
+            }
+            return View(model);
+        }
+
+
     }
 }
