@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BeerShop.Models;
+using System.Web.Security;
 
 namespace BeerShop.Controllers
 {
@@ -129,6 +130,22 @@ namespace BeerShop.Controllers
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        // post 
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Login(User model)
+        {
+            User check = db.Users.Where<User>(u => u.Email == model.Email && u.password == model.password).SingleOrDefault();
+            if (check != null)
+            {
+                FormsAuthentication.SetAuthCookie(check.Email, false);
+                return RedirectToAction("Index", "Home");
+
+            }
+            ModelState.AddModelError("Email", "E-mail or password invalid");
+            return View(model);
         }
 
         // get
