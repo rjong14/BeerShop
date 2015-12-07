@@ -130,5 +130,11 @@ namespace BeerShop.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }
