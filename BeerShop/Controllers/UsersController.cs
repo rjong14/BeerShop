@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BeerShop.Models;
+using System.Web.Security;
 
 namespace BeerShop.Controllers
 {
@@ -123,12 +124,56 @@ namespace BeerShop.Controllers
             }
             base.Dispose(disposing);
         }
-
+        // get 
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
+        // post 
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Login(User model)
+        {
+            User check = db.Users.Where<User>(u => u.Email == model.Email && u.password == model.password).SingleOrDefault();
+            if (check != null)
+            {
+                FormsAuthentication.SetAuthCookie(check.Email, false);
+                return RedirectToAction("Index", "Home");
+
+            }
+            ModelState.AddModelError("Email", "E-mail or password invalid");
+            return View(model);
+        }
+
+        // get
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        // post
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Register(User model)
+        {
+            if (ModelState.IsValid)
+            {
+                User check = db.Users.Where<User>(u => u.Email == model.Email).SingleOrDefault();
+                if (check == null)
+                {
+                    db.Users.Add(model);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("Email", "E-mail address already in use");
+            }
+            return View(model);
+        }
+
+
     }
 }

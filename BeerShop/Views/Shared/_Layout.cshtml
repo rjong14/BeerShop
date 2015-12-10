@@ -26,11 +26,6 @@
                     <img src="~/Content/images/logo1.png" alt="Beer House" width="220">
                 </a>
             </h1>
-            <div class="social-ico">
-                <a href="contact.html"><i class="fa fa-map-marker"></i></a>
-                <a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-                <a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-            </div>
             <nav>
                 <div class="menu-main-navigation-container">
                     <ul id="menu-main-navigation" class="sf-menu">
@@ -44,7 +39,7 @@
                             <a href="#">Something</a>
                         </li>
                         <li>
-                            <a href="#">Something</a>
+                            @Html.ActionLink("Login", "Login", "Users")
                         </li>
                         <li>
                             <a href="#" class="btn-cart"><i class="fa fa-shopping-cart"></i></a>
