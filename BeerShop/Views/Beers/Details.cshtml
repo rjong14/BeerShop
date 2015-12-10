@@ -4,46 +4,37 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>Beer</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Country.Name)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Country.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-    </dl>
-</div>
+<article class="single-event">
+    <div class="grid2column-progression">
+        <img alt="shutterstock_72726022" class="attachment-progression-events wp-post-image" src="~/Content/images/demo/gold-ale.jpg">
+    </div>
+    <div class="grid2column-progression lastcolumn-progression">
+        <div class="events-container-single">
+            <h2>@Html.DisplayFor(model => model.Name)</h2>
+            <div class="entry-meta">
+                <span class="entry-date date">
+                    @foreach(var item in Model.Type) {
+                        @Html.DisplayFor(modelItem => item.Name);
+                    }          
+                </span>
+                <span class="entry-date date">
+                    @Html.DisplayFor(model => model.Country.Name)
+                </span>
+            </div>
+            <div class="entry-meta entry-tickets">
+                <div class="event-tickets tickets">
+                   @Html.DisplayFor(model => model.Price)
+                </div>
+            </div>
+            <div class="entry-content description">
+                <p>@Html.DisplayFor(model => model.Description)</p>
+            </div>
+        </div>
+    </div>
+</article>
+<div class="clearfix"></div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")

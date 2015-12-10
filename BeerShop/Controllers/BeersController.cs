@@ -15,7 +15,6 @@ namespace BeerShop.Controllers
         private Beercontext db = new Beercontext();
 
         // GET: Beers
-        //[Authorize]
         public ActionResult Index()
         {
             var beers = db.Beers.Include(b => b.Country);
