@@ -20,5 +20,5 @@ ASP.NET for metropolia university of applied sciences
 
 ##Team
 
-Rick de Jong
-Jarno van Weigerden
+- Rick de Jong
+- Jarno van Weigerden
