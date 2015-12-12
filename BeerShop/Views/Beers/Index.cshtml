@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -25,16 +26,15 @@
                     <h3>
                         @Html.ActionLink(item.Name, "Details", new { id = item.ID })
                     </h3>
-                    <div class="pro_sub_header">
                         @item.Country.Name
-                    </div>
-                    <div class="menu_content_pro">
-                        <p>Types here</p>
-                        <p>$ @Html.DisplayFor(modelItem => item.Price)</p>
-                    </div>
+                        
                 </div>
-                <div class="clearfix"></div>
+                <div class="menu-content-pro">
+                    <p>@item.Type.Name</p>
+                    <p>$ @Html.DisplayFor(modelItem => item.Price)</p>
+                </div>
             </div>
+            <div class="clearfix"></div>
         </article>
     </div>
 }

@@ -2,9 +2,8 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 
 <article class="single-event">
     <div class="grid2column-progression">
@@ -15,9 +14,7 @@
             <h2>@Html.DisplayFor(model => model.Name)</h2>
             <div class="entry-meta">
                 <span class="entry-date date">
-                    @foreach(var item in Model.Type) {
-                        @Html.DisplayFor(modelItem => item.Name);
-                    }          
+                    @Model.Type.Name
                 </span>
                 <span class="entry-date date">
                     @Html.DisplayFor(model => model.Country.Name)
@@ -25,7 +22,7 @@
             </div>
             <div class="entry-meta entry-tickets">
                 <div class="event-tickets tickets">
-                   @Html.DisplayFor(model => model.Price)
+                   <h3>$ @Html.DisplayFor(model => model.Price)</h3>
                 </div>
             </div>
             <div class="entry-content description">
