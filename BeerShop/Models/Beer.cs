@@ -16,7 +16,9 @@ namespace BeerShop.Models {
         [ForeignKey("Country_ID")]
         public virtual Country Country { get; set; }
         public int? Country_ID { get; set; }
-        public virtual ICollection<Type> Type { get; set; }
+        [ForeignKey("Type_ID")]
+        public virtual Type Type { get; set; }
+        public int? Type_ID { get; set; }
         public double Price { get; set; }
 
     }

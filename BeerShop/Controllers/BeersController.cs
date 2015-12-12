@@ -48,7 +48,7 @@ namespace BeerShop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Name,Description,Country_ID,Price")] Beer beer)
+        public ActionResult Create([Bind(Include = "ID,Name,Description,Country_ID,Type_ID,Price")] Beer beer)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace BeerShop.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Description,Country_ID,Price")] Beer beer)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Country_ID,Type_ID,Price")] Beer beer)
         {
             if (ModelState.IsValid)
             {

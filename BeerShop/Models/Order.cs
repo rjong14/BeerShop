@@ -17,6 +17,7 @@ namespace BeerShop.Models {
         public virtual User User { get; set; }
         public virtual ICollection<OrderItem> OrderItem { get; set; }
         public State State { get; set; }
+        public double Total { get; set; }
 
     }
 }
