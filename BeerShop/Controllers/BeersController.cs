@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BeerShop.Models;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace BeerShop.Controllers
 {
@@ -127,6 +129,14 @@ namespace BeerShop.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [Authorize]
+        public ActionResult Basket(String json)
+        {
+            var beers = JsonConvert.DeserializeObject(json);
+           
+            return View();
         }
     }
 }
