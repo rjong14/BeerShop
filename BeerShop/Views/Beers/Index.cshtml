@@ -9,9 +9,12 @@
 <br />
 <h1>Our Beers</h1>
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
+@if (ViewBag.isadmin) {
+<p>
+        @Html.ActionLink("Create New", "Create")<br />
+    @Html.ActionLink("manage orders", "index", "Orders")
+</p>
+}
 <div class="clearfix"></div>
 @foreach (var item in Model) {
     <div class="grid3column-progression">

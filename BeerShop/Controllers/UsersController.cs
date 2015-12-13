@@ -148,6 +148,12 @@ namespace BeerShop.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult Logout() {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
         // get
         [AllowAnonymous]
         public ActionResult Register()

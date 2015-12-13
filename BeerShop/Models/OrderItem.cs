@@ -14,5 +14,6 @@ namespace BeerShop.Models {
         public int Beer_ID { get; set; }
         public int Quantity { get; set; }
         public double SubTotal { get; set; }
+        public Order Order { get; set; }
     }
 }

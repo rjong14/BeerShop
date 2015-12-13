@@ -17,34 +17,38 @@ jQuery(document).ready(function ($) {
         $(".cart-items-wrapper").toggleClass("visible");
     });
 
+    var itemstring = localStorage.getItem("products");
+    $("#cartcheckout").attr("href", "/Beers/Checkout?json=" + itemstring);
+
     var items = JSON.parse(localStorage.getItem("products"));
     var total = 0;
     for (var item in items) {
+        var sub = items[item].SubTotal.toFixed(2);
         var htmlcard = "<li>" +
                    "<div class='image'>" +
                            " <img src='../../Content/images/demo/gold-ale.jpg' />" +
                         "</div>" +
         "<p><a href='single-product.html'>" + items[item].name + "</a></p>" +
         "<p class='color'> </p>" +
-        "<p>Q-ty: " + items[item].q + " </p>" +
+        "<p>Q-ty: " + items[item].Quantity + " </p>" +
         "<div class='remove'>" +
-            "<a href='#' class='remove-item' data-id='" + items[item].id + "'><i class='fa fa-times'></i></a>" +
-            "<p class='price'>" + items[item].price + "</p>" +
+            "<a href='#' class='remove-item' data-id='" + items[item].Beer_ID + "'><i class='fa fa-times'></i></a>" +
+            "<p class='price'>" + sub + "</p>" +
         "</div>"
         "</li>";
-        total = total + items[item].price;
+        total = total + items[item].SubTotal;
 
         $(".items").append(htmlcard);
         
     }
-    $(".total-price").append(total)
+    $(".total-price").append(total.toFixed(2));
 
     $(".remove-item").on("click", function () {
         console.log("lol1");
         var itemid = $(this).attr("data-id");
         for (var i in items) {
             console.log("lol2");
-            if (items[i].id == itemid) {
+            if (items[i].Beer_ID == itemid) {
                 console.log("lol2 " + itemid);
                 items.splice(i, 1);
                 break;
@@ -53,6 +57,7 @@ jQuery(document).ready(function ($) {
         localStorage.setItem("products", JSON.stringify(items));
         location.reload();
     });
+
 
 
 

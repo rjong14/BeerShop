@@ -1,10 +1,9 @@
 ﻿@model BeerShop.Models.Beer
 
-@{
+@{ 
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <article class="single-event">
     <div class="grid2column-progression">
         <img alt="shutterstock_72726022" class="attachment-progression-events wp-post-image" src="~/Content/images/demo/gold-ale.jpg">
@@ -37,14 +36,16 @@
 </article>
 <div class="clearfix"></div>
 
+@if (Request.IsAuthenticated && ViewBag.isadmin) {
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+}
 
 <script>
-    $(document).ready(function ()
-    {
+        $(document).ready(function ()
+        {
         $("#btnbuy").on("click", function () {
             var id = $(this).attr("data-id");
             var q = $("#aantal").val();
@@ -57,11 +58,11 @@
             if (products == null)
                 products = [];
 
-            var newproduct = { "id": id, "q": q, "name": name, "price": price };
+            var newproduct = { "Beer_ID": id, "Quantity": q, "name": name, "SubTotal": price };
             products.push(newproduct);
 
             localStorage.setItem("products", JSON.stringify(products));
             location.reload();
         });
-    });
-</script>
+        });
+    </script>

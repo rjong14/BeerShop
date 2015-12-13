@@ -360,7 +360,8 @@
     <Content Include="Views\Beers\Details.cshtml" />
     <Content Include="Views\Beers\Edit.cshtml" />
     <Content Include="Views\Beers\Index.cshtml" />
-    <Content Include="Views\Beers\Basket.cshtml" />
+    <Content Include="Views\Beers\Cart.cshtml" />
+    <Content Include="Views\Beers\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

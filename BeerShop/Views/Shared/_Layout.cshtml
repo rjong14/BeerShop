@@ -41,11 +41,17 @@
                             @Html.ActionLink("Beers", "Index", "Beers")
                         </li>
                         <li>
-                            <a href="#">Something</a>
                         </li>
+                            @if (!Request.IsAuthenticated) {
                         <li>
                             @Html.ActionLink("Login", "Login", "Users")
                         </li>
+                            }
+                        @if (Request.IsAuthenticated) {
+                            <li>
+                                @Html.ActionLink("Log out", "Logout", "Users")
+                            </li>
+                        }
                         <li>
                             <a href="#" class="btn-cart"><i class="fa fa-shopping-cart"></i></a>
                         </li>
@@ -57,7 +63,7 @@
 
                             </ul>
                             <p class="sub-total">Total: $<span class="total-price"></span></p>
-                             @Html.ActionLink("View cart", "Basket", "Beers", new { json = "_tempxxx_" }, new { @id= "basketcheckout", @class = "view-bag" })
+                             @Html.ActionLink("View cart", "Cart", "Beers", new { json = "_tempxxx_" }, new { @class = "view-bag" })
                         </div>
                     </div>
                     </div>
@@ -149,9 +155,9 @@
 <script>
  //   alert("hoi");
   //  $(document).ready(function () {
-        var items = localStorage.getItem("products");
+  //      var items = localStorage.getItem("products");
 
-        $("#basketcheckout").attr("href", "/Beers/Basket?json=" + items);
+    //    $("#basketcheckout").attr("href", "/Beers/Basket?json=" + items);
  //   });
 
 </script>

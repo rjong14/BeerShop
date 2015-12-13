@@ -9,16 +9,20 @@ using System.Web.Mvc;
 using BeerShop.Models;
 using Newtonsoft.Json;
 using System.Web.Script.Serialization;
+using Microsoft.AspNet.Identity;
 
 namespace BeerShop.Controllers
 {
     public class BeersController : Controller
     {
         private Beercontext db = new Beercontext();
-
         // GET: Beers
         public ActionResult Index()
         {
+            string email = User.Identity.GetUserName();
+            User us = db.Users.First(c => c.Email == email);
+            ViewBag.isadmin = us.IsAdmin;
+
             var beers = db.Beers.Include(b => b.Country);
             return View(beers.ToList());
         }
@@ -31,6 +35,9 @@ namespace BeerShop.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Beer beer = db.Beers.Find(id);
+            string email = User.Identity.GetUserName();
+            User us = db.Users.First(c => c.Email == email);
+            ViewBag.isadmin = us.IsAdmin;
             if (beer == null)
             {
                 return HttpNotFound();
@@ -131,12 +138,41 @@ namespace BeerShop.Controllers
             base.Dispose(disposing);
         }
 
-        [Authorize]
-        public ActionResult Basket(String json)
+        
+        public ActionResult Cart()
         {
-            var beers = JsonConvert.DeserializeObject(json);
-           
-            return View();
+            //var beers = JsonConvert.DeserializeObject(json);
+            var beers = db.Beers.Include(b => b.Country);
+            return View(beers.ToList());
+        }
+        [Authorize]
+        public ActionResult Checkout(string json) {
+            List<OrderItem> orderitems = new List<OrderItem>();
+            Order order = new Order();
+            if (json != "") {
+                orderitems = JsonConvert.DeserializeObject<List<OrderItem>>(json);
+                string email = User.Identity.GetUserName();
+                User us = db.Users.First(c => c.Email == email);
+                order.User = us;
+                double total=0;
+                if (ModelState.IsValid) {
+
+                
+                    foreach (OrderItem item in orderitems) {
+                
+                            item.Order = order;
+                            db.OrderItem.Add(item);
+                        total = total + item.SubTotal;
+
+                    
+                    }
+                    order.Total = total;
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+                }
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }
