@@ -1,10 +1,9 @@
 ﻿@model BeerShop.Models.Beer
 
-@{
+@{ 
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <article class="single-event">
     <div class="grid2column-progression">
         <img alt="shutterstock_72726022" class="attachment-progression-events wp-post-image" src="~/Content/images/demo/gold-ale.jpg">
@@ -28,11 +27,42 @@
             <div class="entry-content description">
                 <p>@Html.DisplayFor(model => model.Description)</p>
             </div>
+            <label for="aantal">Quantity</label>
+            <input id ="aantal" type="number" value="1">
+            <button type="button" id="btnbuy" data-id="@Model.ID" class="btn btn-primary">Add to cart</button>
         </div>
     </div>
+
 </article>
 <div class="clearfix"></div>
+
+@if (Request.IsAuthenticated && ViewBag.isadmin) {
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+}
+
+<script>
+        $(document).ready(function ()
+        {
+        $("#btnbuy").on("click", function () {
+            var id = $(this).attr("data-id");
+            var q = $("#aantal").val();
+            var name = "@Model.Name";
+            var price = "@Model.Price";
+            price = price.replace(/,/g, '.')
+            price = price * q;
+            var products = [];
+            products = JSON.parse(localStorage.getItem("products"));
+            if (products == null)
+                products = [];
+
+            var newproduct = { "Beer_ID": id, "Quantity": q, "name": name, "SubTotal": price };
+            products.push(newproduct);
+
+            localStorage.setItem("products", JSON.stringify(products));
+            location.reload();
+        });
+        });
+    </script>

@@ -9,16 +9,19 @@
 <br />
 <h1>Our Beers</h1>
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
+@if (ViewBag.isadmin) {
+<p>
+        @Html.ActionLink("Create New", "Create")<br />
+    @Html.ActionLink("manage orders", "index", "Orders")
+</p>
+}
 <div class="clearfix"></div>
 @foreach (var item in Model) {
     <div class="grid3column-progression">
         <article>
             <div class="menu-index-pro">
                 <div class="menu-image-pro">
-                    <a href="Beers/details/@item.ID " data-rel="prettyPhoto[gallery]">
+                    <a href="/Beers/details/@item.ID " data-rel="prettyPhoto[gallery]">
                         <img alt="gold-ale" class="attachment-progression-beers wp-post-image" height="550" src="~/Content/images/demo/gold-ale.jpg" width="370">
                     </a>
                 </div>
@@ -35,6 +38,7 @@
                 </div>
             </div>
             <div class="clearfix"></div>
+
         </article>
     </div>
 }
