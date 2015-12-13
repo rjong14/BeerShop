@@ -1,10 +1,15 @@
 ﻿<html class="no-js" lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <title>The Beer House</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <!--<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />-->
     @Styles.Render("~/Content/css/style.css")
@@ -48,33 +53,10 @@
                     <div class="cart-items-wrapper">
                         <div class="cart-items">
                             <h4>Shopping Bag</h4>
-                            <ul>
-                                <li>
-                                    <div class="image">
-                                        <img src="~/Content/images/demo/berry-lager.jpg" alt="shopping cart image" />
-                                    </div>
-                                    <p><a href="single-product.html">heiniken</a></p>
-                                    <p class="color">White</p>
-                                    <p>Q-ty: 1</p>
-                                    <div class="remove">
-                                        <a href="#" class="remove-item"><i class="fa fa-times"></i></a>
-                                        <p class="price">24</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="image">
-                                        <img src="~/Content/images/demo/apple-ale.jpg" alt="shopping cart image" />
-                                    </div>
-                                    <p><a href="single-product.html">Hertog Jan</a></p>
-                                    <p class="color">Pink</p>
-                                    <p>Q-ty: 1</p>
-                                    <div class="remove">
-                                        <a href="#" class="remove-item"><i class="fa fa-times"></i></a>
-                                        <p class="price">24</p>
-                                    </div>
-                                </li>
+                            <ul class="items">
+
                             </ul>
-                            <p class="sub-total">Subtotal: $48</p>
+                            <p class="sub-total">Total: $<span class="total-price"></span></p>
                             <a href="cart.html" class="view-bag">View My Cart</a>
                         </div>
                     </div>
@@ -151,5 +133,8 @@
     @*<script type="text/javascript" src="~/Content/rs-plugin/js/jquery.themepunch.tools.min.js"></script>*@
     @*<script type="text/javascript" src="~/Content/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>*@
     <!-- End RevSlider -->
+
 </body>
 </html>
+
+

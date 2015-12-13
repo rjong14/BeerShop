@@ -102,10 +102,10 @@ Text Domain: progression
     margin: 25px 0 15px
 }
 
-.cart-items-wrapper .cart-items ul li {
+.cart-items-wrapper .cart-items ul.items li {
     position: relative;
     padding: 0 35px 6px 70px;
-    margin-bottom: 30px;
+    margin-bottom: 45px;
     border-bottom: 1px solid #eee
 }
 

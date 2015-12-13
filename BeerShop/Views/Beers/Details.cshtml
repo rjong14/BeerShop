@@ -28,11 +28,40 @@
             <div class="entry-content description">
                 <p>@Html.DisplayFor(model => model.Description)</p>
             </div>
+            <label for="aantal">Quantity</label>
+            <input id ="aantal" type="number" value="1">
+            <button type="button" id="btnbuy" data-id="@Model.ID" class="btn btn-primary">Add to cart</button>
         </div>
     </div>
+
 </article>
 <div class="clearfix"></div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+
+<script>
+    $(document).ready(function ()
+    {
+        $("#btnbuy").on("click", function () {
+            var id = $(this).attr("data-id");
+            var q = $("#aantal").val();
+            var name = "@Model.Name";
+            var price = "@Model.Price";
+            price = price.replace(/,/g, '.')
+            price = price * q;
+            var products = [];
+            products = JSON.parse(localStorage.getItem("products"));
+            if (products == null)
+                products = [];
+
+            var newproduct = { "id": id, "q": q, "name": name, "price": price };
+            products.push(newproduct);
+
+            localStorage.setItem("products", JSON.stringify(products));
+            location.reload();
+        });
+    });
+</script>
