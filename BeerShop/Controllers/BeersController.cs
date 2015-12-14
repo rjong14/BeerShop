@@ -20,24 +20,31 @@ namespace BeerShop.Controllers
         public ActionResult Index()
         {
             string email = User.Identity.GetUserName();
-            User us = db.Users.First(c => c.Email == email);
-            ViewBag.isadmin = us.IsAdmin;
+            if (email != "") {
+                User us = db.Users.First(c => c.Email == email);
+                ViewBag.isadmin = us.IsAdmin;
+            } else {
+                ViewBag.isadmin = false;
+            }
 
             var beers = db.Beers.Include(b => b.Country);
             return View(beers.ToList());
         }
 
         // GET: Beers/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
+        public ActionResult Details(int? id) {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Beer beer = db.Beers.Find(id);
             string email = User.Identity.GetUserName();
+            if (email != "") { 
             User us = db.Users.First(c => c.Email == email);
             ViewBag.isadmin = us.IsAdmin;
+            }
+            else{
+                ViewBag.isadmin = false;
+            }
             if (beer == null)
             {
                 return HttpNotFound();

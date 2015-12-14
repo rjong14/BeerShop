@@ -9,11 +9,13 @@
 <br />
 <h1>Our Beers</h1>
 
-@if (ViewBag.isadmin) {
+@if (Request.IsAuthenticated) {
+if (ViewBag.isadmin) {
 <p>
         @Html.ActionLink("Create New", "Create")<br />
     @Html.ActionLink("manage orders", "index", "Orders")
 </p>
+}
 }
 <div class="clearfix"></div>
 @foreach (var item in Model) {

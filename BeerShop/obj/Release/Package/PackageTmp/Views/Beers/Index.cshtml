@@ -2,21 +2,28 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <br />
 <h1>Our Beers</h1>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
+@if (Request.IsAuthenticated) {
+if (ViewBag.isadmin) {
+<p>
+        @Html.ActionLink("Create New", "Create")<br />
+    @Html.ActionLink("manage orders", "index", "Orders")
+</p>
+}
+}
 <div class="clearfix"></div>
 @foreach (var item in Model) {
     <div class="grid3column-progression">
         <article>
             <div class="menu-index-pro">
                 <div class="menu-image-pro">
-                    <a href="images/demo/gold-ale.jpg" data-rel="prettyPhoto[gallery]">
+                    <a href="/Beers/details/@item.ID " data-rel="prettyPhoto[gallery]">
                         <img alt="gold-ale" class="attachment-progression-beers wp-post-image" height="550" src="~/Content/images/demo/gold-ale.jpg" width="370">
                     </a>
                 </div>
@@ -24,15 +31,16 @@
                     <h3>
                         @Html.ActionLink(item.Name, "Details", new { id = item.ID })
                     </h3>
-                    <div class="pro_sub_header">
-                        @Html.DisplayFor(modelItem => item.Country)
-                    </div>
-                    <div class="menu_content_pro">
-                        <p>@Html.DisplayFor(modelItem => item.Type)</p>
-                    </div>
+                        @item.Country.Name
+                        
                 </div>
-                <div class="clearfix"></div>
+                <div class="menu-content-pro">
+                    <p>@item.Type.Name</p>
+                    <p>$ @Html.DisplayFor(modelItem => item.Price)</p>
+                </div>
             </div>
+            <div class="clearfix"></div>
+
         </article>
-        </div>
-        }
+    </div>
+}

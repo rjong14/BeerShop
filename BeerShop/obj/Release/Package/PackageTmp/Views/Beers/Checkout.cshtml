@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BeerShop.Models.OrderItem>
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Checkout</h2>
+
+@foreach (var item in Model) {
+    @item.Beer_ID
+    @item.Quantity
+    @item.SubTotal
+}
+
+
+

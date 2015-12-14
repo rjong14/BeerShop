@@ -1,68 +1,70 @@
 ﻿@model BeerShop.Models.Beer
 
-@{
+@{ 
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<article class="single-event">
+    <div class="grid2column-progression">
+        <img alt="shutterstock_72726022" class="attachment-progression-events wp-post-image" src="~/Content/images/demo/gold-ale.jpg">
+    </div>
+    <div class="grid2column-progression lastcolumn-progression">
+        <div class="events-container-single">
+            <h2>@Html.DisplayFor(model => model.Name)</h2>
+            <div class="entry-meta">
+                <span class="entry-date date">
+                    @Model.Type.Name
+                </span>
+                <span class="entry-date date">
+                    @Html.DisplayFor(model => model.Country.Name)
+                </span>
+            </div>
+            <div class="entry-meta entry-tickets">
+                <div class="event-tickets tickets">
+                   <h3>$ @Html.DisplayFor(model => model.Price)</h3>
+                </div>
+            </div>
+            <div class="entry-content description">
+                <p>@Html.DisplayFor(model => model.Description)</p>
+            </div>
+            <label for="aantal">Quantity</label>
+            <input id ="aantal" type="number" value="1">
+            <button type="button" id="btnbuy" data-id="@Model.ID" class="btn btn-primary">Add to cart</button>
+        </div>
+    </div>
 
-@*<h2>Details</h2>
+</article>
+<div class="clearfix"></div>
 
-<div>
-    <h4>Beer</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-
-    </dl>
-</div>
+@if (Request.IsAuthenticated) {
+if (ViewBag.isadmin) {
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
-</p>*@
+</p>
+}
+}
 
+<script>
+        $(document).ready(function ()
+        {
+        $("#btnbuy").on("click", function () {
+            var id = $(this).attr("data-id");
+            var q = $("#aantal").val();
+            var name = "@Model.Name";
+            var price = "@Model.Price";
+            price = price.replace(/,/g, '.')
+            price = price * q;
+            var products = [];
+            products = JSON.parse(localStorage.getItem("products"));
+            if (products == null)
+                products = [];
 
-    <article class="single-event">
-        <div class="grid2column-progression">
-            <img alt="shutterstock_72726022" class="attachment-progression-events wp-post-image" src="~/Content/images/demo/gold-ale.jpg">
-        </div>
-        <div class="grid2column-progression lastcolumn-progression">
-            <div class="events-container-single">
-                <h2>@Html.DisplayFor(model => model.Name)</h2>
-                <div class="entry-meta">
-                    <span class="entry-date date">
-                        @Html.DisplayFor(model => model.Type)
-                    </span>
-                </div>
-                <div class="entry-meta entry-tickets">
-                    <div class="event-tickets tickets">
-                        @Html.DisplayFor(model => model.Country)
-                    </div>
-                </div>
-                <div class="entry-content description">
-                    <p>here comes the LOREM</p>
-                </div>
-            </div>
-        </div>
-    </article>
-    <div class="clearfix"></div>
+            var newproduct = { "Beer_ID": id, "Quantity": q, "name": name, "SubTotal": price };
+            products.push(newproduct);
+
+            localStorage.setItem("products", JSON.stringify(products));
+            location.reload();
+        });
+        });
+    </script>

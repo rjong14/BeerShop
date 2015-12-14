@@ -10,7 +10,6 @@ namespace BeerShop.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "BeerShop.Models.BeerDBContext";
         }
 
         protected override void Seed(BeerShop.Models.Beercontext context)
@@ -20,9 +19,15 @@ namespace BeerShop.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data. E.g.
             //
-
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
             context.Countries.AddOrUpdate(c => c.Name,
-                new Models.Country() { ID = 1, Name = "The Netherlands" }
+                 new Models.Country() { ID = 1, Name = "The Netherlands" }
             );
 
             context.Types.AddOrUpdate(t => t.Name,
@@ -30,12 +35,10 @@ namespace BeerShop.Migrations
                );
 
             context.Beers.AddOrUpdate(b => b.Name,
-              new Models.Beer() { Name = "Heineken", Price = 2.20, Country_ID = 1, Type_ID = 1},
-              new Models.Beer() { Name = "Hertog Jan", Price = 3.20, Country_ID = 1, Type_ID = 1}
-
-
+              new Models.Beer() { Name = "Heineken", Price = 2.20, Country_ID = 1, Type_ID = 1 },
+              new Models.Beer() { Name = "Hertog Jan", Price = 3.20, Country_ID = 1, Type_ID = 1 }
             );
-            //
+
         }
     }
 }

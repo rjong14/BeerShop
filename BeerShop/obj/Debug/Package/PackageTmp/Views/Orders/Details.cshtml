@@ -1,0 +1,70 @@
+﻿@model BeerShop.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+    </dl>
+    <br />
+    <br />
+    <br />
+
+    <table class="table">
+        <tr>
+            <th>
+                Beer
+            </th>
+            <th>
+                Quantity
+            </th>
+
+            <th>
+                subtotal
+            </th>
+        </tr>
+
+        @foreach (var item in Model.OrderItem) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(oitem => item.Beer_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(oitem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(oitem => item.SubTotal)
+                </td>
+            </tr>
+        }
+    </table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

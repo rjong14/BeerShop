@@ -102,18 +102,34 @@ Text Domain: progression
     margin: 25px 0 15px
 }
 
-.cart-items-wrapper .cart-items ul li {
-    position: relative;
-    padding: 0 35px 6px 70px;
-    margin-bottom: 30px;
-    border-bottom: 1px solid #eee
+ul.check-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 25px 0 15px
 }
 
-.cart-items-wrapper .cart-items ul li .image {
+.cart-items-wrapper .cart-items ul.items li {
+    position: relative;
+    padding: 0 35px 6px 70px;
+    margin-bottom: 45px;
+    border-bottom: 1px solid #eee
+}
+ul.check-items li {
+    position: relative;
+    padding: 0 35px 6px 70px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    margin-top: 20px;
+}
+
+.cart-items-wrapper .cart-items ul.items li .image {
     position: absolute;
     top: 0;
     left: 0;
     width: 50px
+}
+ ul.check-items li .image {
+    width: 100px
 }
 
 .cart-items-wrapper .cart-items ul li p {
@@ -122,13 +138,26 @@ Text Domain: progression
     font-size: 12px;
     line-height: 1.25em
 }
+ul.check-items li p {
+    color: #263238;
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.25em
+}
 
 .cart-items-wrapper .cart-items ul li p a {
     color: #263238;
     text-decoration: none
 }
+ul.check-items li p a {
+    color: #263238;
+    text-decoration: none
+}
 
 .cart-items-wrapper .cart-items ul li p a:hover {
+    color: #000
+}
+ul.check-items li p a:hover {
     color: #000
 }
 
@@ -137,6 +166,11 @@ Text Domain: progression
 }
 
 .cart-items-wrapper .cart-items ul li .remove {
+    position: absolute;
+    right: 0;
+    top: 0
+}
+ul.check-items li .remove {
     position: absolute;
     right: 0;
     top: 0
@@ -188,6 +222,22 @@ Text Domain: progression
     font-size: 21px;
     line-height: 1em
 }
+div.check-items-wrapper .view-bag {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    width: 343px;
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1em;
+    font-weight: 700;
+    text-decoration: none;
+    background: #263238;
+    text-transform: uppercase;
+    -webkit-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -moz-transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+}
 
 .cart-items-wrapper .view-bag {
     display: inline-block;
@@ -206,7 +256,15 @@ Text Domain: progression
     transition: all 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955)
 }
 
+div.check-items-wrapper {
+    margin: 50px;
+}
+
 .cart-items-wrapper .view-bag:hover {
+    background: #515b60
+}
+
+div.check-items-wrapper .view-bag:hover {
     background: #515b60
 }
 

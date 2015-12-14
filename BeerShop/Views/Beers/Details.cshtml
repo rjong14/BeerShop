@@ -36,11 +36,13 @@
 </article>
 <div class="clearfix"></div>
 
-@if (Request.IsAuthenticated && ViewBag.isadmin) {
+@if (Request.IsAuthenticated) {
+if (ViewBag.isadmin) {
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+}
 }
 
 <script>

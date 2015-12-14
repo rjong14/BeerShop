@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:f4syfnb2l6.database.windows.net,1433;Database=BeerDB;User ID=sputnik@f4syfnb2l6;Password=P@ssword;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rick\ de\ Jong\\Documents\\GitHub\\BeerShop\\BeerShop\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="BeerShop.Models.Beercontext-Web.config Connection String" description="BeerShop.Models.Beercontext Connection String used in web.config by the application to access the database." defaultValue="BeerShop.Models.Beercontext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rick\ de\ Jong\\Documents\\GitHub\\BeerShop\\BeerShop\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BeerShop.Models.Beercontext']/@connectionString" />
+  </parameter>
+  <parameter name="BeerShop.Models.Beercontext_DatabasePublish-Web.config Connection String" description="BeerShop.Models.Beercontext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="BeerShop.Models.Beercontext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Rick\ de\ Jong\\Documents\\GitHub\\BeerShop\\BeerShop\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BeerShop.Models.Beercontext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>
