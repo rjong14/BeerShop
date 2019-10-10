@@ -1,7 +1,7 @@
-#BeerShop
+# BeerShop
 ASP.NET for metropolia university of applied sciences
 
-###checklist:
+### checklist:
 
 - [x] Database Design
 
@@ -18,7 +18,7 @@ ASP.NET for metropolia university of applied sciences
 
 -----------
 
-##Team
+## Team
 
 - Rick de Jong
 - Jarno van Weigerden
